@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Promosi</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(to right, #FFD400, #E30613);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* NAV DESKTOP */
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #FFD400;
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+            border-radius: 5px;
+            transition: .3s;
+        }
+
+        /* ANIMASI HAMBURGER */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* NAV MOBILE */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background: #E30613;
+            padding: 15px 5%;
+            gap: 15px;
+            animation: slideDown .3s ease;
+        }
+
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #FFD400, #E30613);
+            height: 320px;
+            display: flex;
+            align-items: center;
+            padding: 40px 5%;
+            color: white;
+        }
+
+        .hero h2 {
+            max-width: 500px;
+            font-size: 34px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            padding: 30px 5% 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #E30613;
+        }
+
+        /* GRID PROMO */
+        .promo-grid {
+            padding: 0 5% 40px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .promo-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #FFD400;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: .2s;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-6px);
+            border-color: #E30613;
+        }
+
+        .promo-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .promo-info {
+            padding: 15px;
+        }
+
+        .promo-info h3 {
+            font-size: 16px;
+            color: #E30613;
+            margin-bottom: 8px;
+        }
+
+        .promo-info p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #E30613;
+            color: white;
+            text-align: center;
+            padding: 12px 5%;
+            font-size: 14px;
+            z-index: 300;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.25);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hamburger { display: flex; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>KatalogPromosi</h1>
+
+        <nav>
+            <a href="#">Promo Hari Ini</a>
+            <a href="#">Katalog</a>
+            <a href="#">Event</a>
+            <a href="#">Artikel</a>
+        </nav>
+
+        <div class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#" onclick="closeMenu()">Promo Hari Ini</a>
+        <a href="#" onclick="closeMenu()">Katalog</a>
+        <a href="#" onclick="closeMenu()">Event</a>
+        <a href="#" onclick="closeMenu()">Artikel</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h2>Temukan Promo & Katalog Terbaru Setiap Hari</h2>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <h2 class="section-title">Promo Terbaru Hari Ini</h2>
+
+    <section class="promo-grid">
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1581695943505-69c291a60223">
+            <div class="promo-info">
+                <h3>Promo JSM Alfamart</h3>
+                <p>Berlaku 22–25 November</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+            <div class="promo-info">
+                <h3>Promo Indomaret Hemat</h3>
+                <p>Berlaku 20–26 November</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48">
+            <div class="promo-info">
+                <h3>Katalog Hypermart Weekend</h3>
+                <p>Berlaku 21–24 November</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6">
+            <div class="promo-info">
+                <h3>Promo Superindo Mingguan</h3>
+                <p>Berlaku 21–27 November</p>
+            </div>
+        </div>
+    </section>
+    <section class="promo-grid">
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1581695943505-69c291a60223">
+            <div class="promo-info">
+                <h3>Promo JSM Alfamart</h3>
+                <p>Berlaku 22–25 November</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+            <div class="promo-info">
+                <h3>Promo Indomaret Hemat</h3>
+                <p>Berlaku 20–26 November</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48">
+            <div class="promo-info">
+                <h3>Katalog Hypermart Weekend</h3>
+                <p>Berlaku 21–24 November</p>
+            </div>
+        </div>
+
+        <div class="promo-card">
+            <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6">
+            <div class="promo-info">
+                <h3>Promo Superindo Mingguan</h3>
+                <p>Berlaku 21–27 November</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 KatalogPromosi — Informasi promo dapat berubah sewaktu-waktu.
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const hamburger = document.getElementById("hamburgerBtn");
+        const mobileNav = document.getElementById("mobileNav");
+
+        function toggleMenu() {
+            hamburger.classList.toggle("active");
+
+            mobileNav.style.display =
+                mobileNav.style.display === "flex" ? "none" : "flex";
+        }
+
+        function closeMenu() {
+            mobileNav.style.display = "none";
+            hamburger.classList.remove("active");
+        }
+
+        document.addEventListener("click", (e) => {
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                closeMenu();
+            }
+        });
+    </script>
+
+</body>
+</html>
