@@ -17,76 +17,135 @@
         }
 
         /* Header */
-        header {
-            background: linear-gradient(135deg, #FDB913 0%, #DC143C 100%);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+       /* HEADER */
+        .kp-header {
+            width: 100%;
+            background: linear-gradient(90deg, #fdb913, #f7931e, #dc143c);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 999;
+            padding: 10px 0;
         }
 
-        nav {
+        /* NAVBAR */
+        .kp-nav {
+            max-width: 1280px;
+            margin: auto;
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: #000;
-            cursor: pointer;
-            transition: transform 0.3s;
+        /* LOGO */
+        .kp-logo img {
+            height: 42px;
+            /* ukuran ideal */
+            width: auto;
+            display: block;
+            object-fit: contain;
         }
 
-        .logo:hover {
-            transform: scale(1.05);
-        }
 
-        .nav-links {
+        /* NAVIGATION LINKS */
+        .kp-links {
             display: flex;
-            gap: 25px;
+            gap: 28px;
             list-style: none;
-            align-items: center;
+            margin: 0 auto;
+            /* <--- membuat links berada di tengah */
         }
 
-        .nav-links a {
-            color: #fff;
+        .kp-links a {
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.25s;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            background: rgba(255,255,255,0.2);
+        .kp-links a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: #000;
         }
 
-        .bookmark-icon {
-            background: #DC143C;
-            color: #fff;
-            width: 40px;
-            height: 40px;
+        /* BOOKMARK DI PALING KANAN */
+        .kp-right {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 5px;
+            gap: 16px;
+        }
+
+        /* Bookmark style */
+        .kp-bookmark {
+            font-size: 24px;
             cursor: pointer;
-            font-size: 20px;
-            transition: all 0.3s;
+            transition: .25s;
         }
 
-        .bookmark-icon:hover {
-            background: #b01030;
-            transform: scale(1.1);
+        .kp-bookmark:hover {
+            transform: scale(1.2);
         }
 
+        /* HAMBURGER BUTTON */
+        .kp-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .kp-hamburger span {
+            width: 26px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+
+        /* SIDE DRAWER */
+        .kp-drawer {
+            position: fixed;
+            top: 0;
+            left: -260px;
+            width: 260px;
+            height: 100vh;
+            background: #fff;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            transition: 0.3s;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .kp-drawer a {
+            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .kp-close {
+            font-size: 26px;
+            background: none;
+            border: none;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 880px) {
+            .kp-links {
+                display: none;
+            }
+
+            .kp-hamburger {
+                display: flex;
+            }
+        }
         /* Main Content */
         main {
             max-width: 1200px;
