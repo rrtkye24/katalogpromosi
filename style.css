@@ -1,181 +1,293 @@
- * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: "Inter", sans-serif;
-            background: #f5f5f5;
-            color: #222;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
         }
 
         /* HEADER */
-        header {
-            background: linear-gradient(to right, #FFD400, #E30613);
-            color: white;
-            padding: 15px 5%;
+        .kp-header {
+            width: 100%;
+            background: linear-gradient(90deg, #fdb913, #f7931e, #dc143c);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            padding: 10px 0;
+        }
+
+        /* NAVBAR */
+        .kp-nav {
+            max-width: 1280px;
+            margin: auto;
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
-        header h1 {
-            font-size: 22px;
-            font-weight: 700;
+        /* LOGO */
+        .kp-logo img {
+            height: 42px;
+            /* ukuran ideal */
+            width: auto;
+            display: block;
+            object-fit: contain;
         }
 
-        /* NAV DESKTOP */
-        nav {
+
+        /* NAVIGATION LINKS */
+        .kp-links {
             display: flex;
-            gap: 25px;
+            gap: 28px;
+            list-style: none;
+            margin: 0 auto;
+            /* <--- membuat links berada di tengah */
         }
 
-        nav a {
+        .kp-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.25s;
         }
 
-        nav a:hover {
-            color: #FFD400;
+        .kp-links a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: #000;
         }
 
-        /* HAMBURGER */
-        .hamburger {
+        /* BOOKMARK DI PALING KANAN */
+        .kp-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Bookmark style */
+        .kp-bookmark {
+            font-size: 24px;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .kp-bookmark:hover {
+            transform: scale(1.2);
+        }
+
+        /* HAMBURGER BUTTON */
+        .kp-hamburger {
             display: none;
             flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
             cursor: pointer;
         }
 
-        .hamburger span {
-            width: 28px;
+        .kp-hamburger span {
+            width: 26px;
             height: 3px;
             background: white;
-            margin: 4px 0;
-            border-radius: 5px;
-            transition: .3s;
+            border-radius: 3px;
         }
 
-        /* ANIMASI HAMBURGER */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* NAV MOBILE */
-        .mobile-nav {
-            display: none;
-            flex-direction: column;
-            background: #E30613;
-            padding: 15px 5%;
-            gap: 15px;
-            animation: slideDown .3s ease;
-        }
-
-        .mobile-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* HERO */
-        .hero {
-            background: linear-gradient(135deg, #FFD400, #E30613);
-            height: 320px;
-            display: flex;
-            align-items: center;
-            padding: 40px 5%;
-            color: white;
-        }
-
-        .hero h2 {
-            max-width: 500px;
-            font-size: 34px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-        }
-
-        /* SECTION TITLE */
-        .section-title {
-            padding: 30px 5% 10px;
-            font-size: 22px;
-            font-weight: 700;
-            color: #E30613;
-        }
-
-        /* GRID PROMO */
-        .promo-grid {
-            padding: 0 5% 40px;
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        }
-
-        .promo-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid #FFD400;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: .2s;
-        }
-
-        .promo-card:hover {
-            transform: translateY(-6px);
-            border-color: #E30613;
-        }
-
-        .promo-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .promo-info {
-            padding: 15px;
-        }
-
-        .promo-info h3 {
-            font-size: 16px;
-            color: #E30613;
-            margin-bottom: 8px;
-        }
-
-        .promo-info p {
-            color: #555;
-            font-size: 14px;
-        }
-
-        /* FOOTER */
-        footer {
+        /* SIDE DRAWER */
+        .kp-drawer {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #E30613;
-            color: white;
-            text-align: center;
-            padding: 12px 5%;
-            font-size: 14px;
-            z-index: 300;
-            box-shadow: 0 -3px 10px rgba(0,0,0,0.25);
+            top: 0;
+            left: -260px;
+            width: 260px;
+            height: 100vh;
+            background: #fff;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            transition: 0.3s;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .kp-drawer a {
+            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .kp-close {
+            font-size: 26px;
+            background: none;
+            border: none;
+            margin-bottom: 10px;
+            cursor: pointer;
         }
 
         /* RESPONSIVE */
+        @media (max-width: 880px) {
+            .kp-links {
+                display: none;
+            }
+
+            .kp-hamburger {
+                display: flex;
+            }
+        }
+
+        footer {
+            background: linear-gradient(90deg, #FFD700, #FF4500);
+            padding: 50px 0 25px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Container */
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 0 25px;
+        }
+
+        /* Footer Logo */
+        .footer-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            width: 160px;
+            filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.35));
+        }
+
+        .footer-logo p {
+            color: #fff;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Section */
+        .footer-section h3 {
+            margin-bottom: 14px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            margin: 0;
+            line-height: 1.6;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        /* ICON SOCIAL MEDIA */
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all .25s ease;
+        }
+
+        .social-icon:hover {
+            background: white;
+            color: #FF4500;
+            transform: translateY(-4px);
+        }
+
+        .social-icon img {
+            width: 24px;
+        }
+
+        /* COPYRIGHT */
+        .copyright {
+            text-align: center;
+        }
+
+        footer .copyright {
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            opacity: 0.95;
+        }
+
+        footer .copyright p {
+            margin: 0;
+            font-size: 14px;
+            letter-spacing: 0.4px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 2px solid #bbb;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-card.wide {
+                grid-column: span 1;
+            }
+        }
+
         @media (max-width: 768px) {
-            nav { display: none; }
-            .hamburger { display: flex; }
+            .nav-links {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .deals-grid {
+                grid-template-columns: 1fr;
+            }
         }
