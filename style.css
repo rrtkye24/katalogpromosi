@@ -257,37 +257,3 @@
             font-size: 14px;
             color: #666;
         }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .promo-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .promo-card.wide {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 12px;
-                font-size: 13px;
-            }
-
-            .hero {
-                padding: 50px 20px;
-            }
-
-            .hero-content h1 {
-                font-size: 24px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .deals-grid {
-                grid-template-columns: 1fr;
-            }
-        }
