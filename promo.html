@@ -456,21 +456,44 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo"><img src="katalogpromosi_logo-removebg-preview.png" width="150"></div>
-            <ul class="nav-links">
-                <li><a href="katalogpromosi-home.html">Home</a></li>
-                <li><a href="hot-promo.html" class="active">Hot Promo</a></li>
+    <header class="kp-header">
+        <nav class="kp-nav">
+            <!-- LOGO -->
+            <div class="kp-logo">
+                <img src="kp.logo.png" alt="KatalogPromosi" />
+            </div>
+
+            <!-- NAVIGATION LINKS -->
+            <ul class="kp-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="promo.html">Hot Promo</a></li>
                 <li><a href="kategori.html">Kategori</a></li>
                 <li><a href="katalog.html">Katalog</a></li>
                 <li><a href="event.html">Event</a></li>
                 <li><a href="voucher.html">Voucher</a></li>
             </ul>
-            <div class="bookmark-icon">📖</div>
+            <div class="kp-right">
+                <div class="kp-bookmark">📖</div>
+                <!-- HAMBURGER -->
+                <button class="kp-hamburger" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
         </nav>
-    </header>
 
+        <!-- SIDE DRAWER MENU -->
+        <div class="kp-drawer" id="drawerMenu">
+            <button class="kp-close" id="closeDrawer">✕</button>
+
+            <a href="index.html">Home</a>
+            <a href="promo.html">Hot Promo</a>
+            <a href="kategori.html">Kategori</a>
+            <a href="katalog.html">Katalog</a>
+            <a href="event.html">Event</a>
+            <a href="voucher.html">Voucher</a>
+        </div>
+    </header>
     <main>
         <section class="hero-banner">
             <h1><img src="hotpromo.png" height="200" width="1500"></h1>
